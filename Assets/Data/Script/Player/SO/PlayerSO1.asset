@@ -25,9 +25,9 @@ MonoBehaviour:
   dashTime: 0.12
   dashCoolDown: 0.2
   xVelocityAfterDash: 0
-  yVelocityAfterDash: 20
+  yVelocityAfterDash: 5
   xInput: 0
-  yInput: 0
+  yInput: 1
   isDash: 0
   canDash: 1
   isDashCoolDown: 0

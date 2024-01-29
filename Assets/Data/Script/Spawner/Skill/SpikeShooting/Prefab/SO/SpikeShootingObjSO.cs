@@ -8,6 +8,7 @@ public class SpikeShootingObjSO : ScriptableObject
     public string Name;
     public float damge = 1f;
     public float speed = 10f;
+    public float existTime = 1f;
     [HideInInspector] public float xDir;
     [HideInInspector] public float yDir;
 }

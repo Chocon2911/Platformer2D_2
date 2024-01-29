@@ -19,7 +19,7 @@ public class SpikeShootingObjFly : StraightFly
 
         Rigidbody2D rb = this.spikeShootingObjManager.Rb;
         float speed = this.SpikeShootingObjManager.ObjSO.speed;
-        float zRot = this.spikeShootingObjManager.transform.rotation.z;
+        float zRot = this.spikeShootingObjManager.gameObject.transform.rotation.eulerAngles.z;
 
         this.Fly(rb, speed, zRot);
     }

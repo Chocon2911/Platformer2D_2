@@ -43,4 +43,9 @@ public abstract class HuyMonoBehaviour : MonoBehaviour
     {
         // For override
     }
+
+    protected virtual void OnEnable()
+    {
+        // For override
+    }
 }

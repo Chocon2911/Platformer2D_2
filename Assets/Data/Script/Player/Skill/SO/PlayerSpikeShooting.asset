@@ -9,12 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43482c2c38faf3a48990e4620e375f78, type: 3}
-  m_Name: BlueBullet
+  m_Script: {fileID: 11500000, guid: db82941d9615c594a937c0fa660ed724, type: 3}
+  m_Name: PlayerSpikeShooting
   m_EditorClassIdentifier: 
-  Name: BlueBullet
-  damge: 1
-  speed: 10
-  existTime: 3
-  xDir: 0
-  yDir: 0
+  skillName: BlueBullet
+  skillCooldown: 1
+  skillChargeTime: 0
+  canShoot: 1
+  isCharging: 0
+  isShooting: 0
+  xInput: 1
+  yInput: 1

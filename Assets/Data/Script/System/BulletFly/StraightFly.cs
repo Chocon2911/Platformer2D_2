@@ -12,14 +12,15 @@ public abstract class StraightFly : HuyMonoBehaviour
             Debug.LogWarning(transform.name + ": rb is not exist", transform.gameObject);
             return;
         }
-        Vector2 dir = GetDirFromRot(zRot);
+        Vector2 dir = this.GetDirFromRot(zRot);
         rb.velocity = dir.normalized * speed;
     }
 
-    protected virtual Vector2 GetDirFromRot(float angle)
+    private Vector2 GetDirFromRot(float angle)
     {
-        float xDir = Mathf.Cos(angle);
-        float yDir = Mathf.Sin(angle);
+        float angleInRadians = angle * Mathf.Deg2Rad;
+        float xDir = Mathf.Cos(angleInRadians);
+        float yDir = Mathf.Sin(angleInRadians);
 
         Vector2 dir = new Vector2(xDir, yDir);
         return dir;

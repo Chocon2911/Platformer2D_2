@@ -17,7 +17,7 @@ public class PlayerInputManager : HuyMonoBehaviour
     [SerializeField] private float dashInput;
     public float DashInput => dashInput;
 
-    [Header("SKill")]
+    [Header("Skill")]
     [SerializeField] private float jSkillInput;
     public float JSkillInput => jSkillInput;
 
@@ -51,6 +51,6 @@ public class PlayerInputManager : HuyMonoBehaviour
     protected virtual void GetJSkillInput()
     {
         if (Input.GetKey(KeyCode.J) || Input.GetKeyDown(KeyCode.J)) this.jSkillInput = 1;
-        this.jSkillInput = 0;
+        else this.jSkillInput = 0;
     }
 }

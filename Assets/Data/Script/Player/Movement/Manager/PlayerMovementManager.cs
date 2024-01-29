@@ -169,7 +169,7 @@ public class PlayerMovementManager : HuyMonoBehaviour
         bool isGround = this.playerManager.PlayerSO.isGround;
         bool isDashCoolDown = this.playerManager.PlayerSO.isDashCoolDown;
 
-        if ((!isDash && canDash && dashInput == 1) || (isDash))
+        if ((!isDash && canDash && dashInput == 1))
         {
             StartCoroutine(this.DoDash());
         }

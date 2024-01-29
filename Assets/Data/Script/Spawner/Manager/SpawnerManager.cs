@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class SpawnerManager : HuyMonoBehaviour
 {
-    public SpawnerManager Instance { get; private set; }
+    public static SpawnerManager Instance { get; private set; }
+
+    [SerializeField] private SpawnSkillManger spawnSkillManager;
+    public SpawnSkillManger SpawnSkillManager => spawnSkillManager;
 
     protected override void Awake()
     {
@@ -17,5 +20,18 @@ public class SpawnerManager : HuyMonoBehaviour
         {
             Instance = this;
         }
+    }
+
+    protected override void LoadComponent()
+    {
+        base.LoadComponent();
+        this.LoadSpawnSkillManager();
+    }
+
+    protected virtual void LoadSpawnSkillManager()
+    {
+        if (this.spawnSkillManager != null) return;
+        this.spawnSkillManager = transform.Find("Skill").GetComponent<SpawnSkillManger>();
+        Debug.Log(transform.name + ": LoadSpawnSKillManager", transform.gameObject);
     }
 }

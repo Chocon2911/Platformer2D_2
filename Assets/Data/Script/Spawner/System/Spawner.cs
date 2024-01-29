@@ -36,6 +36,7 @@ public abstract class Spawner : HuyMonoBehaviour
     protected virtual void LoadHolderList()
     {
         if (this.holderList == null) return;
+        this.holderList = new List<Transform>();
         Transform holders = transform.Find("Holder");
         foreach(Transform obj in holders)
         {
@@ -47,6 +48,7 @@ public abstract class Spawner : HuyMonoBehaviour
     protected virtual void LoadPrefabList()
     {
         if (this.prefabList == null) return;
+        this.prefabList = new List<Transform>();
         Transform prefabs = transform.Find("Prefab");
         foreach(Transform obj in prefabs)
         {
@@ -55,17 +57,23 @@ public abstract class Spawner : HuyMonoBehaviour
         Debug.Log(transform.name + ": LoadPrefabList", transform.gameObject);
     }
 
-    //==========================================Spawn==============================================
+    //==========================================Public==============================================
     public virtual Transform Spawn(string name, Vector2 pos, Quaternion rot)
     {
+        Debug.Log(transform.name + ": " + pos + " " + rot, transform.gameObject);
         Transform prefab = CheckPrefabByName(name);
         Transform newPrefab = ClonePrefab(prefab);
 
         newPrefab.SetPositionAndRotation(pos, rot);
         newPrefab.parent = this.holderTrans;
-        newPrefab.gameObject.SetActive(true);
 
         return newPrefab;
+    }
+
+    public virtual void Despawn(Transform obj)
+    {
+        obj.gameObject.SetActive(false);
+        this.AddToHolderList(obj);
     }
 
     //========================================Other Func===========================================
@@ -75,6 +83,7 @@ public abstract class Spawner : HuyMonoBehaviour
         {
             if (obj.name == name) return obj;
         }
+        Debug.LogWarning("Wrong name");
         return null;
     }
 
@@ -82,13 +91,20 @@ public abstract class Spawner : HuyMonoBehaviour
     {
         foreach (Transform obj in this.holderList)
         {
-            if (obj.name == prefab.name)
+            if (obj.name == prefab.name + "(Clone)")
             {
-                obj.gameObject.SetActive(true);
+                this.holderList.Remove(obj);
+                Debug.Log(transform.name + ": Get prefab from holder", transform.gameObject);
                 return obj;
             }
         }
         Transform newPrefab = Instantiate(prefab);
+        Debug.Log(transform.name + ": Instantiate new prefab", transform.gameObject);
         return newPrefab;
+    }
+
+    private void AddToHolderList(Transform obj)
+    {
+        this.holderList.Add(obj);
     }
 }
