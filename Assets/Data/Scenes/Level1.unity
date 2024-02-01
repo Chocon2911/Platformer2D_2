@@ -134207,6 +134207,7 @@ GameObject:
   - component: {fileID: 892433775}
   - component: {fileID: 892433777}
   - component: {fileID: 892433778}
+  - component: {fileID: 892433779}
   m_Layer: 0
   m_Name: BlueBullet
   m_TagString: Untagged
@@ -134247,7 +134248,7 @@ MonoBehaviour:
   rb: {fileID: 892433777}
   bodyCollide: {fileID: 892433778}
   objFly: {fileID: 445820011}
-  objDespawnByTime: {fileID: 1824845675}
+  objDespawn: {fileID: 1824845676}
   objSO: {fileID: 11400000, guid: dbf0a4be3368ec04bbef47769542ad11, type: 2}
 --- !u!50 &892433777
 Rigidbody2D:
@@ -134263,8 +134264,8 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_AngularDrag: 0
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 1
   m_SleepingMode: 1
@@ -134296,6 +134297,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.41, y: 0.44}
   m_EdgeRadius: 0
+--- !u!114 &892433779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 892433773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df59052ca8168364d9f649d66be20fbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objManager: {fileID: 892433775}
 --- !u!1 &1057288059
 GameObject:
   m_ObjectHideFlags: 0
@@ -140891,12 +140905,12 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_AngularDrag: 0
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!66 &1254688302
 CompositeCollider2D:
@@ -141372,6 +141386,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1492622322}
   playerManager: {fileID: 1313775364}
+  playerAnimMovement: {fileID: 0}
   playerAvt: {fileID: 1492622321}
 --- !u!1 &1495083153
 GameObject:
@@ -141465,6 +141480,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1824845674}
   - component: {fileID: 1824845675}
+  - component: {fileID: 1824845676}
   m_Layer: 0
   m_Name: Despawn
   m_TagString: Untagged
@@ -141500,6 +141516,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objManager: {fileID: 892433775}
+--- !u!114 &1824845676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1824845673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 694aaec7d4ecac7419dbfbf5bc1239fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objManager: {fileID: 892433775}
+  objDespawnByTime: {fileID: 1824845675}
 --- !u!1 &1844889179
 GameObject:
   m_ObjectHideFlags: 0
