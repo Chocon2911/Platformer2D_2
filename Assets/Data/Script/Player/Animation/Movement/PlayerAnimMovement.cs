@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.Jobs;
 using UnityEngine;
 
-public class PlayerMovementAnim : HuyMonoBehaviour
+public class PlayerAnimMovement : HuyMonoBehaviour
 {
     [SerializeField] protected PlayerAnimationManager playerAnimationManager;
 
@@ -43,16 +43,17 @@ public class PlayerMovementAnim : HuyMonoBehaviour
         else
         {
             movementState state = movementState.idle;
+            float xInput = PlayerManager.Instance.PlayerInput.MoveInput;
             float currMoveSpeed = this.playerAnimationManager.PlayerManager.Rb.velocity.x;
             float currJumpSpeed = this.playerAnimationManager.PlayerManager.Rb.velocity.y;
             bool isGround = this.playerAnimationManager.PlayerManager.PlayerSO.isGround;
 
-            if (currMoveSpeed < -0.1)
+            if (xInput == -1)
             {
                 this.playerAnimationManager.PlayerAvt.flipX = true;
             }
 
-            else if (currMoveSpeed > 0.1)
+            else if (xInput == 1)
             {
                 this.playerAnimationManager.PlayerAvt.flipX = false;
             }

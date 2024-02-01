@@ -67,7 +67,7 @@ public class PlayerSpikeShootingManager : PlayerShoot
             Debug.LogWarning(transform.name + "error in ShootSkill", transform.gameObject);
         }
 
-        bullet = SpawnerManager.Instance.SpawnSkillManager.SpikeShootingManager.Spawn(skillName, pos, rot);
+        bullet = SpawnSkillManager.Instance.SpikeShootingManager.Spawn(skillName, pos, rot);
         if (bullet == null) return;
         bullet.gameObject.SetActive(true);
         Debug.Log(transform.name + ": Bullet spawned", transform.gameObject);

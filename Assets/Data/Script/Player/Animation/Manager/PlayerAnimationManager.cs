@@ -10,6 +10,9 @@ public class PlayerAnimationManager : HuyMonoBehaviour
     [SerializeField] protected PlayerManager playerManager;
     public PlayerManager PlayerManager => playerManager;
 
+    [SerializeField] protected PlayerAnimMovement playerAnimMovement;
+    public PlayerAnimMovement PlayerAnimMovement => playerAnimMovement;
+
     [SerializeField] protected SpriteRenderer playerAvt;
     public SpriteRenderer PlayerAvt => playerAvt;
 

@@ -15,23 +15,11 @@ public class SpikeShootingObjManager : HuyMonoBehaviour
     [SerializeField] private SpikeShootingObjFly objFly;
     public SpikeShootingObjFly ObjFly => objFly;
 
-    [SerializeField] private SpikeShootingObjDespawnByTime objDespawnByTime;
-    public SpikeShootingObjDespawnByTime ObjDespawnByTime => objDespawnByTime;
+    [SerializeField] private SpikeShootingObjDespawn objDespawn;
+    public SpikeShootingObjDespawn ObjDespawn => objDespawn;
 
     [SerializeField] private SpikeShootingObjSO objSO;
     public SpikeShootingObjSO ObjSO => objSO;
-
-    protected override void OnEnable()
-    {
-        base.OnEnable();
-        Rigidbody2D rb = this.rb;
-        float speed = this.objSO.speed;
-        float zRot = transform.rotation.eulerAngles.z;
-        this.objFly.Fly(rb, speed, zRot);
-
-        float time = this.objSO.existTime;
-        this.objDespawnByTime.DespawnTime(time);
-    }
 
     protected override void LoadComponent()
     {
@@ -52,8 +40,8 @@ public class SpikeShootingObjManager : HuyMonoBehaviour
 
     protected virtual void LoadObjDespawnByTime()
     {
-        if (this.objDespawnByTime != null) return;
-        this.objDespawnByTime = transform.Find("Despawn").GetComponent<SpikeShootingObjDespawnByTime>();
+        if (this.objDespawn != null) return;
+        this.objDespawn = transform.Find("Despawn").GetComponent<SpikeShootingObjDespawn>();
         Debug.Log(transform.name + ": LoadObjDespawnByTime", transform.gameObject);
     }
 

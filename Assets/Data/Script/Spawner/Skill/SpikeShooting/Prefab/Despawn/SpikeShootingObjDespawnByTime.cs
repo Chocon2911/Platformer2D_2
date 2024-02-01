@@ -25,7 +25,7 @@ public class SpikeShootingObjDespawnByTime : DespawnByTime
     protected override void Despawn()
     {
         if (!this.canDespawn) return;
-        SpawnerManager.Instance.SpawnSkillManager.SpikeShootingManager.Despawn(transform.parent);
+        SpawnSkillManager.Instance.SpikeShootingManager.Despawn(transform.parent);
         this.canDespawn = false;
         Debug.Log(transform.name + ": Despawn obj", transform.gameObject);
     }

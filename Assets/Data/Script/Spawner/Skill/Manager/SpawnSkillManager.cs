@@ -2,10 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnSkillManger : HuyMonoBehaviour
+public class SpawnSkillManager : HuyMonoBehaviour
 {
+    public static SpawnSkillManager Instance { get; private set; }
+
     [SerializeField] private SpikeShootingManager spikeShootingManager;
     public SpikeShootingManager SpikeShootingManager => spikeShootingManager;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
 
     protected override void LoadComponent()
     {

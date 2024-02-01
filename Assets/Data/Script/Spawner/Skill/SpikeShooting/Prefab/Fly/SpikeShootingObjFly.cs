@@ -13,9 +13,9 @@ public class SpikeShootingObjFly : StraightFly
         this.LoadSpikeShootingObjManager();
     }
 
-    protected override void Awake()
+    protected override void OnEnable()
     {
-        base.Awake();
+        base.OnEnable();
 
         Rigidbody2D rb = this.spikeShootingObjManager.Rb;
         float speed = this.SpikeShootingObjManager.ObjSO.speed;
